@@ -36,17 +36,13 @@ public class FPF_simulacao extends JFrame {
 	 * Create the frame.
 	 */
 	public FPF_simulacao() {
-		setTitle("APRENDER QEE! - Fluxo de Potência Fundamental");
+		setTitle("APRENDA QEE! - Fluxo de Potência Fundamental");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(184, 54, 244, 187);
-		contentPane.add(panel);
 		
 		JLabel lblAmplitude = new JLabel("Amplitude:");
 		lblAmplitude.setBounds(26, 54, 75, 16);
@@ -78,7 +74,10 @@ public class FPF_simulacao extends JFrame {
 		contentPane.add(lblCorrente);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(109, 109, 52, 27);
+		comboBox_1.setBounds(109, 109, 61, 27);
+		comboBox_1.addItem("9");
+		comboBox_1.addItem("10");
+		comboBox_1.addItem("11");
 		contentPane.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox();
