@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.actionDH;
-import controller.actionFPF;
+import controller.ActionDH;
+import controller.ActionFPF;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -24,24 +24,17 @@ public class menu extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
+	private static final long serialVersionUID = 1L;
+	private JFrame Menu;
 
 	/**
 	 * Launch the application.
 	 */
 	
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FPF_simulacao frame = new FPF_simulacao();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		menu frame = new menu();
+		frame.setVisible(true);
 	}
-
 	
 	public menu() {
 		setTitle("APRENDA QEE!");
@@ -64,12 +57,12 @@ public class menu extends JFrame {
 		contentPane.add(lblEscolhaQualA);
 		
 		JButton btnDistoroHarmnica = new JButton("DISTORÇÃO HARMÔNICA");
-		btnDistoroHarmnica.addActionListener(new actionDH());
+		btnDistoroHarmnica.addActionListener(new ActionDH(Menu));
 		btnDistoroHarmnica.setBounds(73, 159, 305, 29);
 		contentPane.add(btnDistoroHarmnica);
 		
 		JButton btnFluxoDePotncia = new JButton("FLUXO DE POTÊNCIA FUNDAMENTAL");
-		btnFluxoDePotncia.addActionListener(new actionFPF());
+		btnFluxoDePotncia.addActionListener(new ActionFPF(Menu));
 		btnFluxoDePotncia.setBounds(73, 104, 305, 29);
 		contentPane.add(btnFluxoDePotncia);
 		
