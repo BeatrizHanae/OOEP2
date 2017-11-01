@@ -1,87 +1,83 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class FPF_simulacao extends JFrame {
+public class FluxoPotenciaF_simulacao {
+	
+	private JPanel painelFPF;
+	
 
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FPF_simulacao frame = new FPF_simulacao();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public FluxoPotenciaF_simulacao(JFrame telaInicial) throws IOException{
+		
+		criaPainelFluxoPF(telaInicial);
 	}
-
-	/**
-	 * Create the frame.
-	 */
-	public FPF_simulacao() {
-		setTitle("APRENDA QEE! - Fluxo de Potência Fundamental");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	
+	public void criaPainelFluxoPF(JFrame telaInicial) throws IOException {
+		
+		painelFPF = new JPanel();
+		painelFPF.setLayout(null);
+		painelFPF.setLocation((telaInicial.getWidth()-painelFPF.getWidth())/2,(telaInicial.getHeight()-painelFPF.getHeight())/2);
+		
+		telaInicial.setTitle("APRENDA QEE! - Fluxo de Potência Fundamental");
+		telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		telaInicial.setBounds(100, 100, 450, 300);
 		
 		JLabel lblAmplitude = new JLabel("Amplitude:");
-		lblAmplitude.setBounds(26, 54, 75, 16);
-		contentPane.add(lblAmplitude);
+		lblAmplitude.setBounds(36, 70, 75, 16);
+		painelFPF.add(lblAmplitude);
 		
 		JLabel lblAnguloDeFases = new JLabel("Ângulo de fases:");
-		lblAnguloDeFases.setBounds(26, 148, 105, 16);
-		contentPane.add(lblAnguloDeFases);
+		lblAnguloDeFases.setBounds(36, 94, 105, 16);
+		painelFPF.add(lblAnguloDeFases);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(109, 78, 52, 27);
-		contentPane.add(comboBox);
+		comboBox.setBounds(153, 66, 61, 27);
+		painelFPF.add(comboBox);
 		
 		JButton btnSimular = new JButton("SIMULAR");
-		btnSimular.setBounds(26, 231, 117, 29);
-		contentPane.add(btnSimular);
+		btnSimular.setBounds(234, 326, 117, 29);
+		painelFPF.add(btnSimular);
 		
 		JLabel lblFluxoDePotncia = new JLabel("FLUXO DE POTÊNCIA FUNDAMENTAL");
 		lblFluxoDePotncia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFluxoDePotncia.setBounds(97, 16, 256, 16);
-		contentPane.add(lblFluxoDePotncia);
+		lblFluxoDePotncia.setBounds(214, 16, 256, 16);
+		painelFPF.add(lblFluxoDePotncia);
 		
 		JLabel lblTenso = new JLabel("Tensão");
-		lblTenso.setBounds(36, 82, 61, 16);
-		contentPane.add(lblTenso);
+		lblTenso.setBounds(26, 45, 61, 16);
+		painelFPF.add(lblTenso);
 		
 		JLabel lblCorrente = new JLabel("Corrente");
-		lblCorrente.setBounds(36, 110, 75, 16);
-		contentPane.add(lblCorrente);
+		lblCorrente.setBounds(26, 126, 75, 16);
+		painelFPF.add(lblCorrente);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(109, 109, 61, 27);
+		comboBox_1.setBounds(153, 90, 61, 27);
 		comboBox_1.addItem("9");
 		comboBox_1.addItem("10");
 		comboBox_1.addItem("11");
-		contentPane.add(comboBox_1);
+		painelFPF.add(comboBox_1);
 		
 		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(64, 176, 52, 27);
-		contentPane.add(comboBox_2);
+		comboBox_2.setBounds(153, 169, 61, 27);
+		painelFPF.add(comboBox_2);
+		
+		JLabel label = new JLabel("Amplitude:");
+		label.setBounds(36, 149, 75, 16);
+		painelFPF.add(label);
+		
+		JLabel label_1 = new JLabel("Ângulo de fases:");
+		label_1.setBounds(36, 173, 105, 16);
+		painelFPF.add(label_1);
+		
+		JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setBounds(153, 145, 61, 27);
+		painelFPF.add(comboBox_3);
 	}
 }
