@@ -2,20 +2,31 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import view.FluxoPotenciaF;
+
 public class ActionMenu implements ActionListener {
 		
-		private JFrame telaInicial;
+	private JPanel painelInicial;	
+	private JFrame telaInicial;
 		
-		public ActionMenu(JFrame telaInicial) {
+		public ActionMenu(JPanel painelInicial, JFrame telaInicial) {
+			this.painelInicial = painelInicial;
 			this.telaInicial = telaInicial;
 		}
 		
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e){
+			
+			
 			painelInicial.setVisible(false);
-		}
-
+			try {
+				new FluxoPotenciaF(telaInicial);
+			} catch (IOException e1) {
+				System.out.println("Arquivo txt inexistente");
+			}
+	}
 };
