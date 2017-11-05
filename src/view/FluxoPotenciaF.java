@@ -1,7 +1,11 @@
 package view;
 
+import java.awt.Container;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -137,16 +141,33 @@ public class FluxoPotenciaF{
 		textField_2.setBounds(106, 394, 130, 16);
 		painelFPF.add(textField_2);
 		
-		JLabel lblFatorDePotncia = new JLabel("Fator de Potência");
-		lblFatorDePotncia.setBounds(22, 433, 108, 16);
-		painelFPF.add(lblFatorDePotncia);
+		JLabel FatorDePotncia = new JLabel("Fator de Potência");
+		FatorDePotncia.setBounds(22, 433, 108, 16);
+		painelFPF.add(FatorDePotncia);
 		
 		textField_3 = new JTextField();
 		textField_3.setEditable(false);
 		textField_3.setBounds(106, 454, 130, 26);
 		painelFPF.add(textField_3);
 		textField_3.setColumns(10);
+		
+		JPanel panelGrafico1 = new JPanel();
+		panelGrafico1.setBounds(15, 100, 618, 176);;
+		getContentPane().add(panelGrafico1);
+		
+		List <Double> Lista1 = new ArrayList<>();
+		
+		panelGrafico1.setLayout(new GridLayout(0,1,0,0));
+		
+		GraphPanel grafico1 = new GraphPanel(Lista1);
+		panelGrafico1.add(grafico1);
+		grafico1.setLayout(null);
+		
 		telaInicial.setVisible(true);
+	}
+
+	private Container getContentPane() {
+		return null;
 	}
 
 	private void setBounds(int i, int j, int k, int l) {
