@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import view.FluxoPotenciaF;
+import view.FluxoPotenciaFundamental;
 
 public class ActionMenu implements ActionListener {
 		
@@ -24,7 +24,7 @@ public class ActionMenu implements ActionListener {
 			
 			painelInicial.setVisible(false);
 			try {
-				new FluxoPotenciaF(telaInicial);
+				new FluxoPotenciaFundamental(telaInicial);
 			} catch (IOException e1) {
 				System.out.println("Arquivo txt inexistente");
 			}
