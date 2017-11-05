@@ -12,6 +12,7 @@ public class Main {
 		telaInicial.setSize(1000, 1000);
 		telaInicial.setLocationRelativeTo(null);
 		telaInicial.setResizable(true);
+		telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		new Menu(telaInicial);
 		
 		
