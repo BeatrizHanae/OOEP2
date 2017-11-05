@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
 import controller.ActionDH;
 import controller.ActionMenu;
 
@@ -16,23 +18,18 @@ public class Menu {
 	private JPanel painelInicial;
 	
 	public Menu(JFrame telaInicial) throws IOException{
-		
 		criaPainelInicial(telaInicial);
-
 	}
-
 	
-	public void criaPainelInicial(JFrame telaInicial) throws IOException{
+	public void criaPainelInicial(JFrame telaInicial){
 		
 		
 		painelInicial = new JPanel();
 		painelInicial.setLayout(null);
-		painelInicial.setLocation((telaInicial.getWidth()-painelInicial.getWidth())/2,(telaInicial.getHeight()-painelInicial.getHeight())/2);
-
+		painelInicial.setBorder(new EmptyBorder (100, 100, 450, 300));
+		painelInicial.setLocation((telaInicial.getWidth()-painelInicial.getWidth()),(telaInicial.getHeight()-painelInicial.getHeight()));
 
 		setTitle("APRENDA QEE!");
-		telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
 		
 		JLabel lblNewLabel = new JLabel("Bem vindo à  APRENDA QEE!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -48,17 +45,17 @@ public class Menu {
 		JButton FluxoPotenciaF = new JButton("FLUXO DE POTÊNCIA FUNDAMENTAL");
 		FluxoPotenciaF.setBounds(73, 104, 305, 29);
 		
+		JButton btnNewButton = new JButton("FLUXO DE POTÊNCIA HARMÔNICO");
+		btnNewButton.setBounds(73, 214, 305, 29);
+		telaInicial.getContentPane().add(painelInicial);
+		painelInicial.add(btnNewButton);
+		
 		JButton btnDistoroHarmnica = new JButton("DISTORÇÃO HARMÔNICA");
 		btnDistoroHarmnica.addActionListener(new ActionDH(telaInicial));
 		btnDistoroHarmnica.setBounds(73, 159, 305, 29);
 		telaInicial.getContentPane().add(painelInicial);
 		painelInicial.add(btnDistoroHarmnica);
 
-		JButton btnNewButton = new JButton("FLUXO DE POTÊNCIA HARMÔNICO");
-		btnNewButton.setBounds(73, 214, 305, 29);
-		telaInicial.getContentPane().add(painelInicial);
-		painelInicial.add(btnNewButton);
-		
 		FluxoPotenciaF.setActionCommand("FLUXO DE POTÊNCIA FUNDAMENTAL");
 		FluxoPotenciaF.addActionListener(new ActionMenu(painelInicial,telaInicial));
 		telaInicial.getContentPane().add(painelInicial);
@@ -66,9 +63,6 @@ public class Menu {
 		
 		telaInicial.setVisible(true);
 		
-	}
-
-	private void setBounds(int i, int j, int k, int l) {
 	}
 
 	private void setTitle(String string) {	
