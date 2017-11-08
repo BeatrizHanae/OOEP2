@@ -149,4 +149,14 @@ public class GraphPanel extends JPanel {
     	frame.setLocationRelativeTo(null);
     	frame.setVisible(true);         
     }
+    public void setScores(List<Double> scores) {
+        this.scores = scores;
+        invalidate();
+        this.repaint();
+    }
+
+    public List<Double> getScores() {
+        return scores;
+    }
+    
 }
