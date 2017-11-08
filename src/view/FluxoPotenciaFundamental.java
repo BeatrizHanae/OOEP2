@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Container;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,16 +8,19 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JLabel;
-import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-import controller.ActionMenu;
-import javax.swing.JTextField;
+import controller.ActionTensao;
 
-@SuppressWarnings("unused")
-public class FluxoPotenciaF{
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
+public class FluxoPotenciaFundamental{
 	
 	private JPanel painelFPF;
 	private JTextField textField;
@@ -26,150 +28,194 @@ public class FluxoPotenciaF{
 	private JTextField textField_2;
 	private JTextField textField_3;
 	
-	public FluxoPotenciaF(JFrame telaInicial) throws IOException{
-		
-		criaPainelFluxoPF(telaInicial);
+	public FluxoPotenciaFundamental(JFrame telaInicial) throws IOException{
+		criaPainelFluxoFundamental(telaInicial);
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void criaPainelFluxoPF(JFrame telaInicial) throws IOException {
+
+	public void criaPainelFluxoFundamental(JFrame telaInicial) throws IOException {
 		
 		painelFPF = new JPanel();
-		painelFPF.setLayout(null);
 		
 		setTitle("APRENDA QEE! - Fluxo de Potência Fundamental");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
+		telaInicial.setContentPane(painelFPF);
+		painelFPF.setLayout(null);
+		
+		JLabel labelFluxoDePotencia = new JLabel("FLUXO DE POTÊNCIA FUNDAMENTAL");
+		labelFluxoDePotencia.setBounds(384, 6, 231, 16);
+		labelFluxoDePotencia.setHorizontalAlignment(SwingConstants.CENTER);
+		painelFPF.add(labelFluxoDePotencia);
+		
+		JButton botaoSimular = new JButton("SIMULAR");
+		botaoSimular.setBounds(832, 613, 117, 29);
+		painelFPF.add(botaoSimular);
+		
+		JButton botaoRetornarAoMenu = new JButton("RETORNAR AO MENU");
+		botaoRetornarAoMenu.setBounds(806, 643, 176, 29);
+		painelFPF.add(botaoRetornarAoMenu);
+		
+		JPanel panelTensao = new JPanel();
+		panelTensao.setBounds(17, 26, 742, 210);
+		painelFPF.add(panelTensao);
+		setContentPane(panelTensao);
+		panelTensao.setLayout(null);
+		
 		JLabel Amplitude = new JLabel("Amplitude:");
-		Amplitude.setBounds(36, 77, 75, 16);
-		painelFPF.add(Amplitude);
-		
-		JLabel AnguloDeFases = new JLabel("Ângulo de fases:");
-		AnguloDeFases.setBounds(36, 105, 105, 16);
-		painelFPF.add(AnguloDeFases);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(153, 73, 61, 27);
-		painelFPF.add(comboBox);
-		
-		JButton Simular = new JButton("SIMULAR");
-		Simular.setBounds(183, 492, 117, 29);
-		painelFPF.add(Simular);
-		
-		JLabel lblFluxoDePotncia = new JLabel("FLUXO DE POTÊNCIA FUNDAMENTAL");
-		lblFluxoDePotncia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFluxoDePotncia.setBounds(290, 16, 256, 16);
-		painelFPF.add(lblFluxoDePotncia);
+		Amplitude.setBounds(24, 25, 69, 16);
+		panelTensao.add(Amplitude);
 		
 		JLabel Tensao = new JLabel("Tensão");
-		Tensao.setBounds(22, 50, 61, 16);
-		painelFPF.add(Tensao);
+		Tensao.setBounds(6, 6, 45, 16);
+		panelTensao.add(Tensao);
 		
-		JLabel Corrente = new JLabel("Corrente");
-		Corrente.setBounds(22, 181, 75, 16);
-		painelFPF.add(Corrente);
+		JLabel AnguloDeFases = new JLabel("Ângulo de fases:");
+		AnguloDeFases.setBounds(24, 53, 105, 16);
+		panelTensao.add(AnguloDeFases);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(153, 101, 61, 27);
-		comboBox_1.addItem("9");
-		comboBox_1.addItem("10");
-		comboBox_1.addItem("11");
-		painelFPF.add(comboBox_1);
+		JSpinner amplitude1 = new JSpinner();
+		amplitude1.setBounds(147, 20, 33, 26);
+		panelTensao.add(amplitude1);
 		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(153, 233, 61, 27);
-		painelFPF.add(comboBox_2);
-		
-		JLabel label = new JLabel("Amplitude:");
-		label.setBounds(36, 209, 75, 16);
-		painelFPF.add(label);
-		
-		JLabel label_1 = new JLabel("Ângulo de fases:");
-		label_1.setBounds(36, 237, 105, 16);
-		painelFPF.add(label_1);
-		
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setBounds(153, 204, 61, 27);
-		painelFPF.add(comboBox_3);
-		
-		JButton SimularTenso = new JButton("Simular Tensão");
-		SimularTenso.setBounds(46, 140, 131, 29);
-		painelFPF.add(SimularTenso);
-		
-		JButton SimularCorrente = new JButton("Simular Corrente");
-		SimularCorrente.setBounds(46, 272, 131, 29);
-		painelFPF.add(SimularCorrente);
-		
-		JButton RetornarAoMenu = new JButton("RETORNAR AO MENU");
-		RetornarAoMenu.setBounds(483, 492, 170, 29);
-		painelFPF.add(RetornarAoMenu);
-		
-		telaInicial.getContentPane().add(painelFPF);
-		
-		JLabel lblPotnciaAtiva = new JLabel("Potência");
-		lblPotnciaAtiva.setBounds(22, 313, 61, 16);
-		painelFPF.add(lblPotnciaAtiva);
-		
-		JLabel lblPotnciaReativa = new JLabel("Reativa:");
-		lblPotnciaReativa.setBounds(36, 366, 61, 16);
-		painelFPF.add(lblPotnciaReativa);
-		
-		JLabel lblPotenciaAparente = new JLabel("Aparente:");
-		lblPotenciaAparente.setBounds(36, 394, 66, 16);
-		painelFPF.add(lblPotenciaAparente);
-		
-		JLabel lblAtiva = new JLabel("Ativa:");
-		lblAtiva.setBounds(36, 338, 52, 16);
-		painelFPF.add(lblAtiva);
-		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(106, 366, 130, 16);
-		painelFPF.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setColumns(10);
-		textField_1.setBounds(106, 338, 130, 16);
-		painelFPF.add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setColumns(10);
-		textField_2.setBounds(106, 394, 130, 16);
-		painelFPF.add(textField_2);
-		
-		JLabel FatorDePotncia = new JLabel("Fator de Potência");
-		FatorDePotncia.setBounds(22, 433, 108, 16);
-		painelFPF.add(FatorDePotncia);
-		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setBounds(106, 454, 130, 26);
-		painelFPF.add(textField_3);
-		textField_3.setColumns(10);
+		JSpinner angulo1 = new JSpinner();
+		angulo1.setBounds(147, 48, 33, 26);
+		panelTensao.add(angulo1);
 		
 		JPanel panelGrafico1 = new JPanel();
-		panelGrafico1.setBounds(15, 100, 618, 176);;
-		getContentPane().add(panelGrafico1);
+		panelGrafico1.setBounds(212, 6, 507, 198);;
 		
 		List <Double> Lista1 = new ArrayList<>();
 		
 		panelGrafico1.setLayout(new GridLayout(0,1,0,0));
+		panelTensao.add(panelGrafico1);
 		
 		GraphPanel grafico1 = new GraphPanel(Lista1);
 		panelGrafico1.add(grafico1);
 		grafico1.setLayout(null);
 		
+		JButton botaoSimularTensao = new JButton("Simular Tensão");
+		botaoSimularTensao.setBounds(24, 175, 140, 29);
+		botaoSimularTensao.setActionCommand("Simular Tensão");
+		botaoSimularTensao.addActionListener(new ActionTensao(amplitude1, angulo1, grafico1, Lista1, panelTensao, painelFPF, telaInicial));
+		panelTensao.add(botaoSimularTensao);
+		
+		JPanel panelCorrente = new JPanel();
+		panelCorrente.setBounds(17, 237, 742, 207);
+		painelFPF.add(panelCorrente);
+		panelCorrente.setLayout(null);
+		setContentPane(panelCorrente);
+		
+		JLabel labelAmplitude = new JLabel("Amplitude:");
+		labelAmplitude.setBounds(26, 32, 69, 16);
+		panelCorrente.add(labelAmplitude);
+		
+		JLabel labelAngulo = new JLabel("Ângulo de fases:");
+		labelAngulo.setBounds(26, 60, 149, 16);
+		panelCorrente.add(labelAngulo);
+		
+		JLabel Corrente = new JLabel("Corrente");
+		Corrente.setBounds(6, 6, 54, 16);
+		panelCorrente.add(Corrente);
+		
+		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setBounds(155, 27, 33, 26);
+		panelCorrente.add(spinner_2);
+		
+		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setBounds(155, 55, 33, 26);
+		panelCorrente.add(spinner_3);
+		
+		JPanel panelGrafico2 = new JPanel();
+		panelGrafico2.setBounds(212, 6, 512, 195);;
+		
+		List <Double> Lista2 = new ArrayList<>();
+		
+		panelGrafico2.setLayout(new GridLayout(0,1,0,0));
+		panelCorrente.add(panelGrafico2);
+		
+		GraphPanel grafico2 = new GraphPanel(Lista2);
+		panelGrafico2.add(grafico2);
+		grafico2.setLayout(null);
+		
+		JButton botaoSimularCorrente = new JButton("Simular Corrente");
+		botaoSimularCorrente.setBounds(26, 172, 149, 29);
+		panelCorrente.add(botaoSimularCorrente);
+		
+		JPanel panelResultado = new JPanel();
+		panelResultado.setBounds(17, 448, 742, 210);
+		painelFPF.add(panelResultado);
+		setContentPane(panelResultado);
+		panelResultado.setLayout(null);
+	
+		JLabel labelPotenciaReativa = new JLabel("Reativa:");
+		labelPotenciaReativa.setBounds(28, 42, 61, 16);
+		panelResultado.add(labelPotenciaReativa);
+		
+		JLabel lblPotenciaAparente = new JLabel("Aparente:");
+		lblPotenciaAparente.setBounds(28, 98, 66, 16);
+		panelResultado.add(lblPotenciaAparente);
+		
+		JLabel lblAtiva = new JLabel("Ativa:");
+		lblAtiva.setBounds(28, 70, 52, 16);
+		panelResultado.add(lblAtiva);
+		
+		JLabel FatorDePotncia = new JLabel("Fator de Potência");
+		FatorDePotncia.setBounds(28, 126, 108, 16);
+		panelResultado.add(FatorDePotncia);
+		
+		JLabel lblPotnciaAtiva = new JLabel("Potência");
+		lblPotnciaAtiva.setBounds(6, 11, 61, 16);
+		panelResultado.add(lblPotnciaAtiva);
+		
+		textField = new JTextField();
+		textField.setBounds(101, 42, 99, 16);
+		textField.setEditable(false);
+		textField.setColumns(10);
+		panelResultado.add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(101, 70, 99, 16);
+		textField_1.setEditable(false);
+		textField_1.setColumns(10);
+		panelResultado.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(101, 98, 99, 16);
+		textField_2.setEditable(false);
+		textField_2.setColumns(10);
+		panelResultado.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(38, 154, 130, 26);
+		textField_3.setEditable(false);
+		textField_3.setColumns(10);
+		panelResultado.add(textField_3);
+		
+		JPanel panelGrafico3 = new JPanel();
+		panelGrafico3.setBounds(212, 6, 507, 198);;
+		
+		List <Double> Lista3 = new ArrayList<>();
+		
+		panelGrafico3.setLayout(new GridLayout(0,1,0,0));
+		panelResultado.add(panelGrafico3);
+		
+		GraphPanel grafico3 = new GraphPanel(Lista3);
+		panelGrafico3.add(grafico3);
+		grafico3.setLayout(null);
+		
 		telaInicial.setVisible(true);
+		
+	}
+	private void setContentPane(JPanel painelFPF) {
+		
 	}
 
-	private Container getContentPane() {
-		return null;
+	public void printaTela() {	
+		painelFPF.setVisible(true);
 	}
-
+	
 	private void setBounds(int i, int j, int k, int l) {
 		
 	}
