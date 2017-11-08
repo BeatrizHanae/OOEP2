@@ -15,6 +15,5 @@ public class Main {
 		telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		new Menu(telaInicial);
 		
-		
 	}
 }
