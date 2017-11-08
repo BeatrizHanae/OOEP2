@@ -23,7 +23,6 @@ public class Menu {
 	
 	public void criaPainelInicial(JFrame telaInicial){
 		
-		
 		painelInicial = new JPanel();
 		painelInicial.setLayout(null);
 		painelInicial.setBorder(new EmptyBorder (100, 100, 450, 300));
@@ -42,13 +41,12 @@ public class Menu {
 		lblEscolhaQualA.setBounds(40, 60, 312, 16);
 		painelInicial.add(lblEscolhaQualA);
 		
-		JButton FluxoPotenciaF = new JButton("FLUXO DE POTÊNCIA FUNDAMENTAL");
-		FluxoPotenciaF.setBounds(73, 104, 305, 29);
-		
-		JButton btnNewButton = new JButton("FLUXO DE POTÊNCIA HARMÔNICO");
-		btnNewButton.setBounds(73, 214, 305, 29);
+		JButton botaoFluxoPotenciaFundamental = new JButton("FLUXO DE POTÊNCIA FUNDAMENTAL");
+		botaoFluxoPotenciaFundamental.setBounds(73, 104, 305, 29);
+		botaoFluxoPotenciaFundamental.setActionCommand("FLUXO DE POTÊNCIA FUNDAMENTAL");
+		botaoFluxoPotenciaFundamental.addActionListener(new ActionMenu(painelInicial,telaInicial));
 		telaInicial.getContentPane().add(painelInicial);
-		painelInicial.add(btnNewButton);
+		painelInicial.add(botaoFluxoPotenciaFundamental);
 		
 		JButton btnDistoroHarmnica = new JButton("DISTORÇÃO HARMÔNICA");
 		btnDistoroHarmnica.addActionListener(new ActionDH(telaInicial));
@@ -56,15 +54,13 @@ public class Menu {
 		telaInicial.getContentPane().add(painelInicial);
 		painelInicial.add(btnDistoroHarmnica);
 
-		FluxoPotenciaF.setActionCommand("FLUXO DE POTÊNCIA FUNDAMENTAL");
-		FluxoPotenciaF.addActionListener(new ActionMenu(painelInicial,telaInicial));
-		telaInicial.getContentPane().add(painelInicial);
-		painelInicial.add(FluxoPotenciaF);
 		
 		telaInicial.setVisible(true);
+		telaInicial.setContentPane(painelInicial);
 		
 	}
 
+	
 	private void setTitle(String string) {	
 	}
 }
