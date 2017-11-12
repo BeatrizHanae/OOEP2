@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +50,9 @@ public class FluxoPotenciaFundamental{
 		
 		JButton botaoRetornarAoMenu = new JButton("RETORNAR AO MENU");
 		botaoRetornarAoMenu.setBounds(806, 643, 176, 29);
+		//botaoRetornarAoMenu.setActionCommand("RETORNAR AO MENU");
+		//botaoRetornarAoMenu.addActionListener(new ActionRetornaMenu(painelFPF, telaInicial));
+		//telaInicial.getContentPane().add(null);
 		painelFPF.add(botaoRetornarAoMenu);
 		
 		JPanel panelTensao = new JPanel();
