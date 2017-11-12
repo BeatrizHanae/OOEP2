@@ -15,7 +15,7 @@ import controller.ActionMenu;
 
 public class Menu {
 	
-	private JPanel painelInicial;
+	private static JPanel painelInicial;
 	
 	public Menu(JFrame telaInicial) throws IOException{
 		criaPainelInicial(telaInicial);
