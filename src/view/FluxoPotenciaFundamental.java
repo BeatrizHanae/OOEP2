@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Container;
 import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,11 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
+import controller.ActionCorrente;
 import controller.ActionTensao;
 
 import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 
 public class FluxoPotenciaFundamental{
@@ -119,13 +117,13 @@ public class FluxoPotenciaFundamental{
 		Corrente.setBounds(6, 6, 54, 16);
 		panelCorrente.add(Corrente);
 		
-		JSpinner spinner_2 = new JSpinner();
-		spinner_2.setBounds(155, 27, 33, 26);
-		panelCorrente.add(spinner_2);
+		JSpinner amplitude2 = new JSpinner();
+		amplitude2.setBounds(155, 27, 33, 26);
+		panelCorrente.add(amplitude2);
 		
-		JSpinner spinner_3 = new JSpinner();
-		spinner_3.setBounds(155, 55, 33, 26);
-		panelCorrente.add(spinner_3);
+		JSpinner angulo2 = new JSpinner();
+		angulo2.setBounds(155, 55, 33, 26);
+		panelCorrente.add(angulo2);
 		
 		JPanel panelGrafico2 = new JPanel();
 		panelGrafico2.setBounds(212, 6, 512, 195);;
@@ -141,6 +139,8 @@ public class FluxoPotenciaFundamental{
 		
 		JButton botaoSimularCorrente = new JButton("Simular Corrente");
 		botaoSimularCorrente.setBounds(26, 172, 149, 29);
+		botaoSimularCorrente.setActionCommand("Simular Corrente");
+		botaoSimularCorrente.addActionListener(new ActionCorrente(amplitude2,angulo2,grafico2, Lista2,panelCorrente,painelFPF,telaInicial));
 		panelCorrente.add(botaoSimularCorrente);
 		
 		JPanel panelResultado = new JPanel();
