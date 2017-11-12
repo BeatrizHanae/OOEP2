@@ -30,12 +30,12 @@ public class ActionTensao implements ActionListener {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			double amplitude1 = Double.parseDouble(amplitude.getValue().toString());
-			double angulo1 = Double.parseDouble(angulo.getValue().toString());
+			double amplitudeV = Double.parseDouble(amplitude.getValue().toString());
+			double anguloV = Double.parseDouble(angulo.getValue().toString());
 			grafico1.revalidate();
 			lista1.clear();
 			for(double t=0;t<=90;t++) {
-			lista1.add(botaoSimularTensao.OndaTensao(amplitude1,t,angulo1));
+			lista1.add(botaoSimularTensao.OndaTensao(amplitudeV,t,anguloV));
 			grafico1.setScores(lista1);
 			}
 			//painelFPF.setVisible(false);

@@ -2,7 +2,13 @@ package model;
 
 public class ModelFluxoDePotenciaFundamental {
 	public double frequenciaAngular = 120*Math.PI;
+	public static double amplitudeV;
+	public static double anguloV;
+	public static double amplitudeI;
+	public static double anguloI;
 	
+	//VRMS = amplitude da Tensao
+	//IRMS = amplitude da Corrente
 	public double OndaTensao(double VRMS, double t, double angulov) {
 		return VRMS*Math.cos(frequenciaAngular*t + angulov);
 	}

@@ -29,12 +29,12 @@ public class ActionCorrente implements ActionListener {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			double amplitude2 = Double.parseDouble(amplitude.getValue().toString());
-			double angulo2 = Double.parseDouble(angulo.getValue().toString());
+			double amplitudeI = Double.parseDouble(amplitude.getValue().toString());
+			double anguloI = Double.parseDouble(angulo.getValue().toString());
 			grafico2.revalidate();
 			lista2.clear();
 			for(double t=0;t<=90;t++) {
-			lista2.add(botaoSimularCorrente.OndaCorrente(amplitude2,t,angulo2));
+			lista2.add(botaoSimularCorrente.OndaCorrente(amplitudeI,t,anguloI));
 			grafico2.setScores(lista2);
 			}
 			//painelFPF.setVisible(false);
