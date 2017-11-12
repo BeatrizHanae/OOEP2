@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 
 import controller.ActionCalculaPotencias;
 import controller.ActionCorrente;
+import controller.ActionRetornaMenu;
 import controller.ActionTensao;
 
 import javax.swing.JTextField;
@@ -49,10 +50,9 @@ public class FluxoPotenciaFundamental{
 		painelFPF.add(labelFluxoDePotencia);
 		
 		JButton botaoRetornarAoMenu = new JButton("RETORNAR AO MENU");
-		botaoRetornarAoMenu.setBounds(806, 643, 176, 29);
-		//botaoRetornarAoMenu.setActionCommand("RETORNAR AO MENU");
-		//botaoRetornarAoMenu.addActionListener(new ActionRetornaMenu(painelFPF, telaInicial));
-		//telaInicial.getContentPane().add(null);
+		botaoRetornarAoMenu.setBounds(794, 625, 160, 29);
+		botaoRetornarAoMenu.setActionCommand("RETORNAR AO MENU");
+		botaoRetornarAoMenu.addActionListener(new ActionRetornaMenu(painelFPF, telaInicial));
 		painelFPF.add(botaoRetornarAoMenu);
 		
 		JPanel panelTensao = new JPanel();
@@ -197,7 +197,7 @@ public class FluxoPotenciaFundamental{
 		grafico3.setLayout(null);
 	
 		JButton botaoSimular = new JButton("SIMULAR");
-		botaoSimular.setBounds(832, 613, 117, 29);
+		botaoSimular.setBounds(815, 594, 117, 29);
 		botaoSimular.setActionCommand("SIMULAR");
 		botaoSimular.addActionListener(new ActionCalculaPotencias(potAtiva, potReativa, potAparente, fatorPotencia, grafico3, Lista3, panelCorrente, painelFPF, telaInicial));
 		painelFPF.add(botaoSimular);
