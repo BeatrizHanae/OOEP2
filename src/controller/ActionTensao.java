@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 
@@ -32,13 +33,28 @@ public class ActionTensao implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			double amplitudeV = Double.parseDouble(amplitude.getValue().toString());
 			double anguloV = Double.parseDouble(angulo.getValue().toString());
-			grafico1.revalidate();
-			lista1.clear();
-			for(double t=0;t<=90;t++) {
-			lista1.add(botaoSimularTensao.OndaTensao(amplitudeV,t,anguloV));
-			grafico1.setScores(lista1);
+			
+			try{
+				if(amplitudeV < 0 || amplitudeV > 220){
+					IllegalArgumentException e1 = new IllegalArgumentException();
+					throw e1;
+				}
+				else if(anguloV < -180 || anguloV > 180){
+					RuntimeException e2 = new RuntimeException();
+					throw e2;
+				}else{
+						grafico1.revalidate();
+						lista1.clear();
+						for(int t = 0 ; t<180 ; t++){
+							lista1.add(botaoSimularTensao.OndaTensao(amplitudeV, t, anguloV));
+							grafico1.setScores(lista1);
+						}
+					}
+				}catch(IllegalArgumentException e1){	
+					JOptionPane.showMessageDialog(null, "Valor inválido!\nInforme valores entre 0 e 220");
+			} catch(RuntimeException e2){
+				JOptionPane.showMessageDialog(null, "Valor inválido!\nInforme angulo entre -180 e 180 graus");
 			}
-			//painelFPF.setVisible(false);
 		}
 		
 };
