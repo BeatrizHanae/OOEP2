@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import controller.ActionDH;
-import controller.ActionMenu;
+import controller.ActionMenuDH;
+import controller.ActionMenuFPF;
 
 public class Menu {
 	
@@ -44,15 +44,16 @@ public class Menu {
 		JButton botaoFluxoPotenciaFundamental = new JButton("FLUXO DE POTÊNCIA FUNDAMENTAL");
 		botaoFluxoPotenciaFundamental.setBounds(73, 104, 305, 29);
 		botaoFluxoPotenciaFundamental.setActionCommand("FLUXO DE POTÊNCIA FUNDAMENTAL");
-		botaoFluxoPotenciaFundamental.addActionListener(new ActionMenu(painelInicial,telaInicial));
+		botaoFluxoPotenciaFundamental.addActionListener(new ActionMenuFPF(painelInicial,telaInicial));
 		telaInicial.getContentPane().add(painelInicial);
 		painelInicial.add(botaoFluxoPotenciaFundamental);
 		
-		JButton btnDistoroHarmnica = new JButton("DISTORÇÃO HARMÔNICA");
-		btnDistoroHarmnica.addActionListener(new ActionDH(telaInicial));
-		btnDistoroHarmnica.setBounds(73, 159, 305, 29);
+		JButton botaoDistorcaoHarmonica = new JButton("DISTORÇÃO HARMÔNICA");
+		botaoDistorcaoHarmonica.setBounds(73, 159, 305, 29);
+		botaoDistorcaoHarmonica.setActionCommand("DISTORÇÃO HARMÔNICA");
+		botaoDistorcaoHarmonica.addActionListener(new ActionMenuDH(painelInicial,telaInicial));
 		telaInicial.getContentPane().add(painelInicial);
-		painelInicial.add(btnDistoroHarmnica);
+		painelInicial.add(botaoDistorcaoHarmonica);
 
 		
 		telaInicial.setVisible(true);
