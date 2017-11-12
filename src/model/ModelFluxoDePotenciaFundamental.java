@@ -1,6 +1,7 @@
 package model;
 
 public class ModelFluxoDePotenciaFundamental {
+	
 	public double frequenciaAngular = 120*Math.PI;
 	public static double amplitudeV;
 	public static double anguloV;
@@ -19,10 +20,10 @@ public class ModelFluxoDePotenciaFundamental {
 		return OndaTensao(VRMS,t,angulov)*OndaCorrente(IRMS,t,anguloi);
 	}
 	public double ValorPotAtiva(double VRMS, double angulov, double anguloi, double IRMS) {
-		return Math.round(VRMS*IRMS*Math.cos(Math.toRadians(angulov)-Math.toRadians(anguloi)));
+		return Math.round(VRMS*IRMS*Math.cos(Math.toRadians(angulov-anguloi)));
 	}
 	public double ValorPotReativa(double VRMS, double angulov, double anguloi, double IRMS) {
-		return Math.round(VRMS*IRMS*Math.sin(Math.toRadians(angulov) - Math.toRadians(anguloi)));
+		return Math.round(VRMS*IRMS*Math.sin(Math.toRadians(angulov - anguloi)));
 	}
 	public double ValorPotAparente(double VRMS, double IRMS) {
 		return Math.round(VRMS*IRMS);
