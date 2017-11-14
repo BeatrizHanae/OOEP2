@@ -14,18 +14,18 @@ public class ActionMenuFPF implements ActionListener {
 	private JPanel painelInicial;	
 	private JFrame telaInicial;
 		
-		public ActionMenuFPF(JPanel painelInicial, JFrame telaInicial) {
+	public ActionMenuFPF(JPanel painelInicial, JFrame telaInicial) {
 			this.painelInicial = painelInicial;
 			this.telaInicial = telaInicial;
-		}
+	}
 		
-		public void actionPerformed(ActionEvent e){
+	public void actionPerformed(ActionEvent e){
 			
-			painelInicial.setVisible(false);
-			try {
-				new FluxoPotenciaFundamental(telaInicial);
-			} catch (IOException e1) {
-				System.out.println("Arquivo txt inexistente");
-			}
+		painelInicial.setVisible(false);
+		try {
+			new FluxoPotenciaFundamental(telaInicial);
+		} catch (IOException e1) {
+			System.out.println("Arquivo txt inexistente");
+		}
 	}
 };

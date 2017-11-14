@@ -12,6 +12,7 @@ import javax.swing.JSpinner;
 
 import controller.ActionRetornaMenu;
 import controller.ActionSimularComponente;
+import controller.ActionSimularHarmonico;
 
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -108,9 +109,11 @@ public class DistorcaoHarmonica {
 		comboxharmonicos.setBounds(232, 67, 100, 27);
 		panelOrdemHarmonicos.add(comboxharmonicos);
 		
-		JButton botaoSimularHarmnicos = new JButton("Simular Harmônicos");
-		botaoSimularHarmnicos.setBounds(52, 97, 161, 29);
-		panelOrdemHarmonicos.add(botaoSimularHarmnicos);
+		JButton botaoSimularHarmonicos = new JButton("Simular Harmônicos");
+		botaoSimularHarmonicos.setBounds(52, 97, 161, 29);
+		botaoSimularHarmonicos.setActionCommand("Simular Harmônicos");
+		botaoSimularHarmonicos.addActionListener(new ActionSimularHarmonico());
+		panelOrdemHarmonicos.add(botaoSimularHarmonicos);
 		
 		JLabel lblSaida = new JLabel("Saídas - Série de Fourier");
 		lblSaida.setBounds(52, 372, 160, 16);
