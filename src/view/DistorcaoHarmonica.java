@@ -13,7 +13,6 @@ import javax.swing.JSpinner;
 import controller.ActionRetornaMenu;
 import controller.ActionSimularComponente;
 import controller.ActionSimularHarmonicos;
-import view.SimuladorHarmonico;
 
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -21,7 +20,7 @@ import javax.swing.JButton;
 public class DistorcaoHarmonica {
 
 	private JPanel painelDH;
-	private SimuladorHarmonico paineis;
+	public SimuladorHarmonico paineis;
 
 	public DistorcaoHarmonica(JFrame telaInicial) throws IOException{
 		criaPainelDistorcaoHarmonica(telaInicial);
@@ -102,7 +101,7 @@ public class DistorcaoHarmonica {
 		panelOrdemHarmonicos.add(numeroHarmonico);
 		
 		JLabel lblHarmnicos = new JLabel("Harmônicos:");
-		lblHarmnicos.setBounds(26, 67, 89, 16);
+		lblHarmnicos.setBounds(16, 67, 89, 16);
 		panelOrdemHarmonicos.add(lblHarmnicos);
 		
 		JComboBox<String> comboxharmonicos = new JComboBox<String>();
@@ -112,9 +111,9 @@ public class DistorcaoHarmonica {
 		panelOrdemHarmonicos.add(comboxharmonicos);
 		
 		JButton botaoSimularHarmonicos = new JButton("Simular Harmônicos");
-		botaoSimularHarmonicos.setBounds(52, 97, 161, 29);
+		botaoSimularHarmonicos.setBounds(107, 106, 161, 29);
 		botaoSimularHarmonicos.setActionCommand("Simular Harmônicos");
-		botaoSimularHarmonicos.addActionListener(new ActionSimularHarmonicos(telaInicial, paineis.panelSimulaHarmonico1, paineis.panelSimulaHarmonico2, paineis.panelSimulaHarmonico3, paineis.panelSimulaHarmonico4, paineis.panelSimulaHarmonico5, paineis.panelSimulaHarmonico6, comboxharmonicos, numeroHarmonico));
+		botaoSimularHarmonicos.addActionListener(new ActionSimularHarmonicos(telaInicial, panelOrdemHarmonicos, panelOrdemHarmonicos, panelOrdemHarmonicos, panelOrdemHarmonicos, panelOrdemHarmonicos, panelOrdemHarmonicos, comboxharmonicos, numeroHarmonico));
 		panelOrdemHarmonicos.add(botaoSimularHarmonicos);
 		
 		JLabel lblSaida = new JLabel("Saídas - Série de Fourier");
@@ -133,6 +132,8 @@ public class DistorcaoHarmonica {
 		
 		JButton botaoSimular2 = new JButton("SIMULAR");
 		botaoSimular2.setBounds(811, 481, 117, 29);
+		botaoSimular2.setActionCommand("SIMULAR");
+		botaoSimular2.addActionListener(new ActionSimularComponente(amplitude1, angulo1, grafico4, Lista4, panelFundamental, painelDH, telaInicial));
 		painelDH.add(botaoSimular2);
 		
 		JButton botaoRetornarAoMenu = new JButton("RETORNAR AO MENU");

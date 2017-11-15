@@ -8,7 +8,6 @@ import javax.swing.JSpinner;
 
 import model.ModelDistorcaoHarmonica;
 import view.GraphPanel;
-import view.SimuladorHarmonico;
 
 
 public class ActionSimularHarmonico implements ActionListener{
