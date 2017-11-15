@@ -33,6 +33,9 @@ public class ActionCorrente implements ActionListener {
 			double amplitudeI = Double.parseDouble(amplitude.getValue().toString());
 			double anguloI = Double.parseDouble(angulo.getValue().toString());
 			
+			ModelFluxoDePotenciaFundamental.amplitudeIRMS = amplitudeI;
+			ModelFluxoDePotenciaFundamental.anguloIRMS = anguloI;
+			
 			try{
 				if(amplitudeI < 0 || amplitudeI > 100){
 					IllegalArgumentException e1 = new IllegalArgumentException();
