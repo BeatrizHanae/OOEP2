@@ -34,6 +34,10 @@ public class ActionTensao implements ActionListener {
 			double amplitudeV = Double.parseDouble(amplitude.getValue().toString());
 			double anguloV = Double.parseDouble(angulo.getValue().toString());
 			
+			ModelFluxoDePotenciaFundamental.amplitudeVRMS = amplitudeV;
+			ModelFluxoDePotenciaFundamental.anguloVRMS = anguloV;
+			
+			
 			try{
 				if(amplitudeV < 0 || amplitudeV > 220){
 					IllegalArgumentException e1 = new IllegalArgumentException();
