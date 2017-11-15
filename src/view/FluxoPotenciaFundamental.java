@@ -156,9 +156,9 @@ public class FluxoPotenciaFundamental{
 		lblAtiva.setBounds(17, 504, 99, 16);
 		painelFPF.add(lblAtiva);
 		
-		JLabel FatorDePotncia = new JLabel("Fator de Potência");
-		FatorDePotncia.setBounds(28, 126, 108, 16);
-		painelFPF.add(FatorDePotncia);
+		JLabel lblFatorDePotncia = new JLabel("Fator de Potência:");
+		lblFatorDePotncia.setBounds(17, 582, 119, 16);
+		painelFPF.add(lblFatorDePotncia);
 		
 		potAtiva = new JTextField();
 		potAtiva .setBounds(139, 504, 93, 16);
@@ -176,13 +176,13 @@ public class FluxoPotenciaFundamental{
 		potAparente.setBounds(139, 544, 93, 16);
 		potAparente.setEditable(false);
 		potAparente.setColumns(10);
-		painelFPF.add(potAparente);
+		painelFPF.add(potAparente);;
 		
 		fatorPotencia = new JTextField();
-		fatorPotencia.setBounds(38, 154, 130, 26);
 		fatorPotencia.setEditable(false);
+		fatorPotencia.setBounds(40, 607, 130, 26);
+		painelFPF.add(fatorPotencia);
 		fatorPotencia.setColumns(10);
-		painelFPF.add(fatorPotencia);;
 		
 		List <Double> Lista3 = new ArrayList<>();
 		
@@ -199,18 +199,17 @@ public class FluxoPotenciaFundamental{
 		JButton botaoSimular = new JButton("SIMULAR");
 		botaoSimular.setBounds(815, 594, 117, 29);
 		botaoSimular.setActionCommand("SIMULAR");
-		botaoSimular.addActionListener(new ActionCalculaPotencias(potAtiva, potReativa, potAparente, fatorPotencia, grafico3, Lista3, panelCorrente, painelFPF, telaInicial));
+		botaoSimular.addActionListener(new ActionTensao(amplitude1, angulo1, grafico1, Lista1, panelTensao, painelFPF, telaInicial));
+		botaoSimular.addActionListener(new ActionCorrente(amplitude2,angulo2,grafico2, Lista2,panelCorrente,painelFPF,telaInicial));
+		botaoSimular.addActionListener(new ActionCalculaPotencias(potAtiva, potReativa, potAparente, fatorPotencia, grafico3, Lista3, painelFPF, telaInicial));
 		painelFPF.add(botaoSimular);
+		
 		
 		telaInicial.setVisible(true);
 		
 	}
 	private void setContentPane(JPanel painelFPF) {
 		
-	}
-
-	public void printaTela() {	
-		painelFPF.setVisible(true);
 	}
 	
 	private void setBounds(int i, int j, int k, int l) {

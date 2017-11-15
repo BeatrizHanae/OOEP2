@@ -12,7 +12,8 @@ import javax.swing.JSpinner;
 
 import controller.ActionRetornaMenu;
 import controller.ActionSimularComponente;
-import controller.ActionSimularHarmonico;
+import controller.ActionSimularHarmonicos;
+import view.SimuladorHarmonico;
 
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -20,6 +21,7 @@ import javax.swing.JButton;
 public class DistorcaoHarmonica {
 
 	private JPanel painelDH;
+	private SimuladorHarmonico paineis;
 
 	public DistorcaoHarmonica(JFrame telaInicial) throws IOException{
 		criaPainelDistorcaoHarmonica(telaInicial);
@@ -112,7 +114,7 @@ public class DistorcaoHarmonica {
 		JButton botaoSimularHarmonicos = new JButton("Simular Harmônicos");
 		botaoSimularHarmonicos.setBounds(52, 97, 161, 29);
 		botaoSimularHarmonicos.setActionCommand("Simular Harmônicos");
-		botaoSimularHarmonicos.addActionListener(new ActionSimularHarmonico());
+		botaoSimularHarmonicos.addActionListener(new ActionSimularHarmonicos(telaInicial, paineis.panelSimulaHarmonico1, paineis.panelSimulaHarmonico2, paineis.panelSimulaHarmonico3, paineis.panelSimulaHarmonico4, paineis.panelSimulaHarmonico5, paineis.panelSimulaHarmonico6, comboxharmonicos, numeroHarmonico));
 		panelOrdemHarmonicos.add(botaoSimularHarmonicos);
 		
 		JLabel lblSaida = new JLabel("Saídas - Série de Fourier");
