@@ -1,10 +1,10 @@
-Nome: Beatriz Hanae Fujimoto
+Nome: Beatriz Hanae Fujimoto  
 Matrícula: 160113814
 
 
-##Aprenda QEE!
+Aprenda QEE!
 
-##Introdução:
+Introdução:
 
     O “Aprenda QEE!” é um programa elaborado na linguagem Java, que foi proposto como projeto de avaliação para os alunos da disciplina de Orientação a Objetos. O objetivo do projeto foi criar um programa, que fosse utilizável para a disciplina de Qualidade de Energia Elétrica, que contém simulações de problemas como: Fluxo de Potência Fundamental e Distorção Harmônica.
 
